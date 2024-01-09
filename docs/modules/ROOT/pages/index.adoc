@@ -1,0 +1,20 @@
+= Metadata Assertion
+:toc: macro
+:toc-title:
+:sectanchors:
+:sectnums!:
+
+*Preliminary draft 09 January 2024* +
+xref:_version_history[]
+
+IMPORTANT: This is an early private review draft of this document. Please refer to the draft date above when providing feedback. See xref:_version_history[] for description of what has changed between private review drafts.
+
+include::partial$toc.adoc[]
+include::partial$status.adoc[]
+include::partial$license.adoc[]
+
+:sectnums:
+
+== Introduction
+
+... to do

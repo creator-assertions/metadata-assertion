@@ -1,0 +1,7 @@
+== Version history
+
+IMPORTANT: This version history reflects changes to this document made while in private review. It will be removed and reset when the spec becomes public.
+
+*09 January 2024*
+
+* Initial private review draft.
