@@ -1,0 +1,44 @@
+{
+	"@context" : {
+		"exif": "http://ns.adobe.com/exif/1.0/",
+		"exifEX": "http://cipa.jp/exif/2.32/",
+		"tiff": "http://ns.adobe.com/tiff/1.0/",
+		"Iptc4xmpCore": "http://iptc.org/std/Iptc4xmpCore/1.0/xmlns/",
+		"Iptc4xmpExt": "http://iptc.org/std/Iptc4xmpExt/2008-02-29/",
+		"dc" : "http://purl.org/dc/elements/1.1/",
+		"photoshop" : "http://ns.adobe.com/photoshop/1.0/",
+	},
+	"photoshop:DateCreated": "Aug 31, 2022", 
+	"Iptc4xmpExt:DigitalSourceType": "https://cv.iptc.org/newscodes/digitalsourcetype/digitalCapture",
+	"Iptc4xmpExt:LocationCreated": { 
+	  "Iptc4xmpExt:City": "San Francisco"
+	},
+	"Iptc4xmpExt:PersonInImage": [ 
+	  "Erika Fictional"
+	],
+	"Iptc4xmpCore:AltTextAccessibility": "Photo of Erika Fictional standing in front of the Golden Gate Bridge at sunset.",
+	"exif:GPSVersionID": "2.2.0.0",
+	"exif:GPSLatitude": "39,21.102N",
+	"exif:GPSLongitude": "74,26.5737W",
+	"exif:GPSAltitudeRef": 0,
+	"exif:GPSAltitude": "100963/29890",
+	"exif:GPSTimeStamp": "2019-09-22T18:22:57Z",
+	"exif:GPSSpeedRef": "K",
+	"exif:GPSSpeed": "4009/161323",
+	"exif:GPSImgDirectionRef": "T",
+	"exif:GPSImgDirection": "296140/911",
+	"exif:GPSDestBearingRef": "T",
+	"exif:GPSDestBearing": "296140/911",
+	"exif:GPSHPositioningError": "13244/2207",
+	"exif:ExposureTime": "1/100",
+	"exif:FNumber": 4.0,
+	"exif:ColorSpace": 1,
+	"exif:DigitalZoomRatio": 2.0,
+	"tiff:Make": "CameraCompany",
+	"tiff:Model": "Shooter S1",
+	"exifEX:LensMake": "CameraCompany",
+	"exifEX:LensModel": "17.0-35.0 mm",
+	"exifEX:LensSpecification": { "@list": [ 1.55, 4.2, 1.6, 2.4 ] }
+  
+}
+  

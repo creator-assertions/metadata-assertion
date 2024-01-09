@@ -4,6 +4,10 @@
 :sectanchors:
 :sectnums!:
 
+The https://c2pa.org/specifications/specifications/1.4/specs/C2PA_Specification.html[*C2PA technical specification*] allows _<<_actor,actors>>_ in a workflow to make cryptographically signed _<<_c2pa_assertion,assertions>>_ about the produced _<<C2PA asset>>._
+
+This specification describes a _<<C2PA assertion>>_ referred to here as the *metadata assertion* that can be added to a _<<C2PA Manifest>>_ to allow the incorporation of metadata from various metadata standards (including, but not limited to, XMP, IPTC, and Exif) to be cryptographically bound to the _<<C2PA Manifest>>_.
+
 *Preliminary draft 09 January 2024* +
 xref:_version_history[]
 
@@ -15,16 +19,34 @@ include::partial$license.adoc[]
 
 :sectnums:
 
-== Introduction
-
-== Glossary
-
-== Normative references
-
 include::partial$terms.adoc[]
 include::partial$version_history.adoc[]
 
 == Assertion definition
 
-... to do
+In earlier versions of https://c2pa.org/specifications/specifications/1.4/specs/C2PA_Specification.html[*C2PA technical specification*], there were individual assertions for each metadata standard (e.g., IPTC, EXIF).
 
+This specification defines a single `cca.metadata` assertion to simplify the specification and to allow for the addition of new metadata standards in the future, without the need to create more assertions. This simplification also makes it clearer that such metadata has been called out by the Claim Generator as significant - having been explicitly included in the Manifest to enable the cryptographic validation of the data. The relationship of these statements to the signer is specified in <<_statements>>.
+
+A common metadata assertion shall have a label of `cca.metadata`, and contain a single JSON content type box containing the https://www.w3.org/TR/json-ld11/[JSON-LD] serialization of one or more metadata values from other metadata standards including (but not limited to): IPTC, EXIF, XMP, and Schema.org. The `@context` property within the JSON-LD object shall be included, and used to provide context / namespaces for the metadata standards being specified. The JSON-LD object may then contain other properties, as defined by those metadata standards, that specify the actual metadata. These values may be unique to the assertion or they may be copied from the standard "metadata blocks" of the asset format. When copying, it is recommended that for those formats that can be expressed in XMP, that the data shall be serialized according to the rules of the https://www.iso.org/standard/79384.html[JSON-LD serialization of XMP].
+
+An example of an common metadata assertion for an image:
+
+[source,json]
+----
+include::partial$examples/common-metadata-image.jsonld[]
+----
+
+An example of an common metadata assertion for a PDF:
+
+[source,json]
+----
+include::partial$examples/common-metadata-pdf.jsonld[]
+----
+
+[NOTE]
+====
+Although the redaction process works in such a way that only an entire assertion can be redacted (see <<_redaction_of_assertions>>), the use of an xref:_update_manifests[update manifest] enables partial redaction by removing the original and then placing the new, reduced, versions in the update manifest. This new assertion would be presented in a xref:_user_experience[user experience] in association with the signer of the update manifest and not with the signer of the C2PA Manifest that has been redacted.
+
+For example, an assertion containing both location data and camera information which may need to have the location data redacted which could be done through an update manifest with a new `cca.metadata` assertion with only the camera information.
+====
