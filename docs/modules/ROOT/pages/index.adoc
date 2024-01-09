@@ -17,4 +17,14 @@ include::partial$license.adoc[]
 
 == Introduction
 
+== Glossary
+
+== Normative references
+
+include::partial$terms.adoc[]
+include::partial$version_history.adoc[]
+
+== Assertion definition
+
 ... to do
+
