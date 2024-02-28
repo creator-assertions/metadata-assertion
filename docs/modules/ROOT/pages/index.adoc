@@ -4,14 +4,11 @@
 :sectanchors:
 :sectnums:
 
-The https://c2pa.org/specifications/specifications/1.4/specs/C2PA_Specification.html[*C2PA technical specification*] allows _<<_actor,actors>>_ in a workflow to make cryptographically signed _<<_c2pa_assertion,assertions>>_ about the produced _<<C2PA asset>>._
+The *link:https://c2pa.org/specifications/specifications/2.0/specs/C2PA_Specification.html[C2PA technical specification]* allows actors in a workflow to make cryptographically signed assertions about the produced C2PA asset.
 
-This specification describes a _<<C2PA assertion>>_ referred to here as the *metadata assertion* that can be added to a _<<C2PA Manifest>>_ to allow the incorporation of metadata from various metadata standards (including, but not limited to, XMP, IPTC, and Exif) to be cryptographically bound to the _<<C2PA Manifest>>_.
+This specification describes a C2PA assertion referred to here as the *metadata assertion* that can be added to a C2PA Manifest to allow metadata from various metadata standards (including, but not limited to, XMP, IPTC, and Exif) to be cryptographically bound to the C2PA Manifest.
 
-*Preliminary draft 09 January 2024* +
-xref:_version_history[]
-
-IMPORTANT: This is an early private review draft of this document. Please refer to the draft date above when providing feedback. See xref:_version_history[] for description of what has changed between private review drafts.
+This specification differs from the link:++https://c2pa.org/specifications/specifications/2.0/specs/C2PA_Specification.html#_metadata++[`c2pa.metadata` assertion] from the C2PA technical specification in that there are no restrictions on the metadata fields which can be represented.
 
 Version 1.0 *Pre-draft 28 February 2024* · xref:_version_history[]
 
@@ -25,13 +22,32 @@ include::partial$contributing.adoc[]
 include::partial$foreword.adoc[]
 include::partial$toc.adoc[]
 
+== Introduction
+
+_This section is non-normative._
+
+=== Scope
+
+IMPORTANT: For purposes of the Community Specification License, the link:https://github.com/creator-assertions/metadata-assertion/blob/main/scope.md[`scope.md` document] at the root of this project’s GitHub repository is the governing document of this specification’s scope.
+
+=== History
+
+In 1.3 and earlier versions of the link:https://c2pa.org/specifications/specifications/1.4/specs/C2PA_Specification.html[C2PA technical specification], there were individual assertions for each metadata standard (e.g., IPTC, EXIF). These were coalesced into link:++https://c2pa.org/specifications/specifications/1.4/specs/C2PA_Specification.html#_common_metadata++[a single “common” metadata assertion] in version 1.4 of the specification. In link:++https://c2pa.org/specifications/specifications/2.0/specs/C2PA_Specification.html#metadata_annex++[version 2.0 of the C2PA technical specification], new restrictions were added as to which metadata content could be reflected in the built-in `c2pa.metadata` assertion.
+
+This specification is not a product of the C2PA, but provides a mechanism for metadata that can no longer be expressed in the `c2pa.metadata` assertion to be included in a C2PA Manifest.
+
 == Assertion definition
 
-In earlier versions of https://c2pa.org/specifications/specifications/1.4/specs/C2PA_Specification.html[*C2PA technical specification*], there were individual assertions for each metadata standard (e.g., IPTC, EXIF).
+A CAWG metadata assertion SHALL have a label of `cawg.metadata` and SHALL follow the format for metadata assertions as described below:
 
-This specification defines a single `cca.metadata` assertion to simplify the specification and to allow for the addition of new metadata standards in the future, without the need to create more assertions. This simplification also makes it clearer that such metadata has been called out by the Claim Generator as significant - having been explicitly included in the Manifest to enable the cryptographic validation of the data. The relationship of these statements to the signer is specified in <<_statements>>.
+"Each metadata assertion shall contain a single JSON content type box containing the https://www.w3.org/TR/json-ld11/[JSON-LD] serialization of one or more metadata values. The `@context` property within the JSON-LD object shall be included, and used to provide context / namespaces for the metadata standards being specified.  The recommended procedure to create this JSON-LD object is to first create an https://www.iso.org/standard/57421.html[XMP Data Model] representation of the metadata and then serialize that to JSON-LD using the https://www.iso.org/standard/79384.html[JSON-LD serialization of XMP]. The JSON-LD would then be stored as a JSON content type box."
+-- link:++https://c2pa.org/specifications/specifications/2.0/specs/C2PA_Specification.html#_common_requirements++[Section 18.14.1&comma; “Metadata: Common Requirements&comma;” of the C2PA technical specification version 2.0]
 
-A common metadata assertion shall have a label of `cca.metadata`, and contain a single JSON content type box containing the https://www.w3.org/TR/json-ld11/[JSON-LD] serialization of one or more metadata values from other metadata standards including (but not limited to): IPTC, EXIF, XMP, and Schema.org. The `@context` property within the JSON-LD object shall be included, and used to provide context / namespaces for the metadata standards being specified. The JSON-LD object may then contain other properties, as defined by those metadata standards, that specify the actual metadata. These values may be unique to the assertion or they may be copied from the standard "metadata blocks" of the asset format. When copying, it is recommended that for those formats that can be expressed in XMP, that the data shall be serialized according to the rules of the https://www.iso.org/standard/79384.html[JSON-LD serialization of XMP].
+IMPORTANT: The restrictions expressed in link:++https://c2pa.org/specifications/specifications/2.0/specs/C2PA_Specification.html#metadata_annex++[Appendix A, “Implementation Details for `c2pa.metadata`, in the C2PA technical specification] SHALL NOT apply to this assertion.
+
+=== Examples
+
+_This section is non-normative._
 
 An example of an common metadata assertion for an image:
 
@@ -46,12 +62,5 @@ An example of an common metadata assertion for a PDF:
 ----
 include::partial$examples/common-metadata-pdf.jsonld[]
 ----
-
-[NOTE]
-====
-Although the redaction process works in such a way that only an entire assertion can be redacted (see <<_redaction_of_assertions>>), the use of an xref:_update_manifests[update manifest] enables partial redaction by removing the original and then placing the new, reduced, versions in the update manifest. This new assertion would be presented in a xref:_user_experience[user experience] in association with the signer of the update manifest and not with the signer of the C2PA Manifest that has been redacted.
-
-For example, an assertion containing both location data and camera information which may need to have the location data redacted which could be done through an update manifest with a new `cca.metadata` assertion with only the camera information.
-====
 
 include::partial$version-history.adoc[]
