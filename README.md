@@ -1,20 +1,22 @@
-# Metadata Assertion
+# Creator Assertions Working Group Metadata Assertion
 
-TO DO: Add links to community spec documents.
+This repository contains the source material for the current working draft of the [Creator Assertions Working Group](https://creator-assertions.github.io/)'s metadata assertion. A rendered version of this specification can be found [here](https://creator-assertions.github.io/metadata/).
 
-## About this site
+## Governance
 
-This document is the source code for a public specification available at [(TEMPORARY SITE to be named later)](https://reliable-sprite-ac392c.netlify.app/metadata/0.1-draft/).
+This specification is subject to the [Community Specification License 1.0](https://github.com/CommunitySpecification/1.0).
+
+## Site build process
 
 The site content is built using [Antora](https://antora.org), which takes Asciidoc (.adoc) plain text files and renders them to HTML and other formats.
 
-The primary content of this document is available in [docs/modules/ROOT/pages/index.adoc](https://github.com/content-authorship/metadata/blob/main/docs/modules/ROOT/pages/index.adoc) in this repo.
+The primary content of this document is available in [docs/modules/ROOT/pages/index.adoc](https://github.com/creator-assertions/metadata-assertion/blob/main/docs/modules/ROOT/pages/index.adoc) in this repo.
 
 ## Local preview
 
 You can render the site of this content locally if you wish to test the appearance of changes you are making. To do this:
 
-1. Ensure that you have a current version of node.js installed ([installers are here](https://nodejs.org/en/download/)).
+1. Ensure that you have a current version of node.js installed. ([Installers are here.](https://nodejs.org/en/download/))
 2. Install Antora and other project dependencies.
 
 ```
