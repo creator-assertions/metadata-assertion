@@ -36,6 +36,10 @@ In versions 1.3 and earlier of the link:https://c2pa.org/specifications/specific
 
 This specification is not a product of the C2PA, but provides a mechanism for metadata that can no longer be expressed in the `c2pa.metadata` assertion to be included in a C2PA Manifest.
 
+== Normative references
+
+* https://c2pa.org/specifications/specifications/2.0/specs/C2PA_Specification.html[C2PA technical specification, version 2.0]
+
 == Assertion definition
 
 A CAWG metadata assertion SHALL have a label of `cawg.metadata` and SHALL follow the format for metadata assertions as described below:
