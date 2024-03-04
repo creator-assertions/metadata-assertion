@@ -10,7 +10,7 @@ This specification describes a C2PA assertion referred to here as the *metadata 
 
 This specification differs from the link:++https://c2pa.org/specifications/specifications/2.0/specs/C2PA_Specification.html#_metadata++[`c2pa.metadata` assertion] from the C2PA technical specification in that there are no restrictions on the metadata fields which can be represented.
 
-Version 1.0 *Pre-draft 28 February 2024* · xref:_version_history[]
+Version 1.0 *Draft 04 March 2024* · xref:_version_history[]
 
 [#maintainers]
 *Maintainers:*

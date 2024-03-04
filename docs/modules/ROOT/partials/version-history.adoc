@@ -6,3 +6,7 @@ _This section is non-normative._
 *28 February 2024*
 
 * Prepare 1.0-draft version, derived from final description of link:++https://c2pa.org/specifications/specifications/1.4/specs/C2PA_Specification.html#_common_metadata++[common metadata assertion in C2PA 1.4 Technical Specification].
+
+*04 March 2024*
+
+* Promoted from pre-draft to draft status.
