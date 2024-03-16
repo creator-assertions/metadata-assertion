@@ -47,7 +47,7 @@ A CAWG metadata assertion SHALL have a label of `cawg.metadata` and SHALL follow
 "Each metadata assertion shall contain a single JSON content type box containing the https://www.w3.org/TR/json-ld11/[JSON-LD] serialization of one or more metadata values. The `@context` property within the JSON-LD object shall be included, and used to provide context / namespaces for the metadata standards being specified.  The recommended procedure to create this JSON-LD object is to first create an https://www.iso.org/standard/57421.html[XMP Data Model] representation of the metadata and then serialize that to JSON-LD using the https://www.iso.org/standard/79384.html[JSON-LD serialization of XMP]. The JSON-LD would then be stored as a JSON content type box."
 -- link:++https://c2pa.org/specifications/specifications/2.0/specs/C2PA_Specification.html#_common_requirements++[Section 18.14.1&comma; “Metadata: Common Requirements&comma;” of the C2PA technical specification version 2.0]
 
-IMPORTANT: The restrictions expressed in link:++https://c2pa.org/specifications/specifications/2.0/specs/C2PA_Specification.html#metadata_annex++[Appendix A, “Implementation Details for `c2pa.metadata`, in the C2PA technical specification] SHALL NOT apply to this assertion.
+IMPORTANT: The restrictions expressed in link:++https://c2pa.org/specifications/specifications/2.0/specs/C2PA_Specification.html#metadata_annex++[Appendix A, “Implementation Details for `c2pa.metadata`,” in the C2PA technical specification] SHALL NOT apply to this assertion.
 
 === Examples
 
